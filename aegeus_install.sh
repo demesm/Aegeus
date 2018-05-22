@@ -279,13 +279,17 @@ function setup_node() {
   configure_systemd
 }
 
+function fail2ban(){
+  apt-get install fail2ban -y
+  service fail2ban restart
+}
 
 ##### Main #####
 clear
-
 purgeOldInstallation
 checks
 prepare_system
+fail2ban
 download_node
 setup_node
 
